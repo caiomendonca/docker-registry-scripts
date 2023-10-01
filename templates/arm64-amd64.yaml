@@ -1,0 +1,12 @@
+image: ${DOCKER_CM_REG}/${DOCKER_CM_IMAGE}:${DOCKER_CM_TAG}
+manifests:
+  -
+    image: ${DOCKER_CM_REG}/${DOCKER_CM_IMAGE}:${DOCKER_CM_TAG}-amd64
+    platform:
+      architecture: amd64
+      os: linux
+  -
+    image: ${DOCKER_CM_REG}/${DOCKER_CM_IMAGE}:${DOCKER_CM_TAG}-arm64
+    platform:
+      architecture: arm64
+      os: linux
