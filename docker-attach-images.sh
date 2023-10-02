@@ -3,9 +3,9 @@
 helpFunction()
 {
    echo ""
-   echo "Version: 1.0" 
-   echo "Caio Mendonca https://cmconsultor.com.br - https://github.com/caiomendonca" 
-   echo "This script is a user-friendly interface to attach arm64 and amd64 docker images on same Docker Hub tag with /bin/manifest-tool" 
+   echo "Version 1.0" 
+   echo "Created by Caio Mendonca https://cmconsultor.com.br / https://github.com/caiomendonca" 
+   echo "This script is a user-friendly interface to attach arm64 and amd64 docker images on same Docker Hub tag using /bin/manifest-tool" 
    echo "Example: $0 -u cmconsultor23 -r repository_name -t v1.0.0 -a amd64 -d /path/to/Dockerfile -l /path/to/files/to/make/image"
    echo -e "\t-u Docker hub registry name"
    echo -e "\t-r Docker hub repository name"
@@ -26,9 +26,13 @@ done
 # Print helpFunction in case parameters are empty
 if [ -z "$parameterU" ] || [ -z "$parameterR" ] || [ -z "$parameterT" ]
 then
-   echo "Fill in all parameters";
+   echo "Fill in all parameters!";
    helpFunction
 fi
+
+echo ""
+echo "Version 1.0" 
+echo "Created by Caio Mendonca https://cmconsultor.com.br / https://github.com/caiomendonca" 
 
 DOCKER_CM_REGISTRY=$parameterU
 DOCKER_CM_REPOSITORY=$parameterR

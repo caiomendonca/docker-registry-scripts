@@ -3,9 +3,9 @@
 helpFunction()
 {
    echo ""
-   echo "Version: 1.0" 
-   echo "Caio Mendonca https://cmconsultor.com.br - https://github.com/caiomendonca" 
-   echo "Example: $0 -u cmconsultor23 -r image_name -t v1.0.0 -a both "
+   echo "Version 1.0" 
+   echo "Created by Caio Mendonca https://cmconsultor.com.br / https://github.com/caiomendonca"
+   echo "Example: $0 -u cmconsultor23 -r repository_name -t v1.0.0 -a both "
    echo "Warning: Don't forget to login in Docker Hub before running this script with "docker login -u yourDockerhubUser -pYourPassword" command"
    echo -e "\t-u Docker hub registry name"
    echo -e "\t-r Docker hub repository name"
@@ -28,9 +28,13 @@ done
 # Print helpFunction in case parameters are empty
 if [ -z "$parameterU" ] || [ -z "$parameterR" ] || [ -z "$parameterT" ] || [ -z "$parameterA" ]
 then
-   echo "Fill in all parameters";
+   echo "Fill in all parameters!";
    helpFunction
 fi
+
+echo ""
+echo "Version 1.0" 
+echo "Created by Caio Mendonca https://cmconsultor.com.br / https://github.com/caiomendonca" 
 
 DOCKER_CM_REGISTRY=$parameterU
 DOCKER_CM_REPOSITORY=$parameterR

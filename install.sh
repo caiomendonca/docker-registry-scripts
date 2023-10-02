@@ -1,10 +1,14 @@
 #!/bin/bash
 
+echo ""
+echo "Version 1.0" 
+echo "Created by Caio Mendonca https://cmconsultor.com.br / https://github.com/caiomendonca"
+
 # set variables
 OS_ARCH=$(arch)
 MANIFEST_TOOL_VERSION="2.0.8"
 # ainda nao testado
-if [$OS_ARCH == "x86_64"]; then
+if [ $OS_ARCH == "x86_64" ]; then
     # install dependencies
     echo "installing depencencies.."
     sudo apt install wget tar qemu-user-static binfmt-support -y
@@ -28,22 +32,15 @@ if [$OS_ARCH == "x86_64"]; then
     sudo mv /tmp/manifest-tool/manifest-tool-linux-amd64 /bin/manifest-tool
 
     # delete downloaded files
-    echo "deleting dowloaded files.."
+    echo "deleting downloaded files.."
     sudo rm -rf /tmp/manifest-tool.tar.gz /tmp/manifest-tool
-
-    # copy templates to /etc/manifest-tool
-    #echo "installing manifest-tool templates.."
-    #sudo mkdir -p /etc/manifest-tool
-    #sudo cp -r $PWD/templates /etc/manifest-tool/
 
     # copy scripts to /bin
     echo "installing scripts.."
     sudo cp -r $PWD/docker-create-image.sh /bin/docker-create-image && sudo chmod +x /bin/docker-create-image
     sudo cp -r $PWD/docker-push-image.sh /bin/docker-push-image && sudo chmod +x /bin/docker-push-image
-    sudo cp -r $PWD/docker-attach-image.sh /bin/docker-attach-image && sudo chmod +x /bin/docker-attach-image
+    sudo cp -r $PWD/docker-attach-images.sh /bin/docker-attach-images && sudo chmod +x /bin/docker-attach-images
     
 else
     "This script is only compatible with x86_64 operating systems"
 fi
-
-
