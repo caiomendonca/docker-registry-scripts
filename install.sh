@@ -37,9 +37,9 @@ if [ $OS_ARCH == "x86_64" ]; then
 
     # copy scripts to /bin
     echo "installing scripts.."
-    sudo cp -r $PWD/docker-create-image.sh /bin/docker-create-image && sudo chmod +x /bin/docker-create-image
-    sudo cp -r $PWD/docker-push-image.sh /bin/docker-push-image && sudo chmod +x /bin/docker-push-image
-    sudo cp -r $PWD/docker-attach-images.sh /bin/docker-attach-images && sudo chmod +x /bin/docker-attach-images
+    sudo cp -r $PWD/bin/docker-create-image.sh /bin/docker-create-image && sudo chmod +x /bin/docker-create-image
+    sudo cp -r $PWD/bin/docker-push-image.sh /bin/docker-push-image && sudo chmod +x /bin/docker-push-image
+    sudo cp -r $PWD/bin/docker-attach-images.sh /bin/docker-attach-images && sudo chmod +x /bin/docker-attach-images
     
 else
     "This script is only compatible with x86_64 operating systems"
