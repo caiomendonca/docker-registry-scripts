@@ -11,6 +11,7 @@ MANIFEST_TOOL_VERSION="2.0.8"
 if [ $OS_ARCH == "x86_64" ]; then
     # install dependencies
     echo "installing depencencies.."
+    sudo apt update
     sudo apt install wget tar qemu-user-static binfmt-support -y
 
     # install qemu
