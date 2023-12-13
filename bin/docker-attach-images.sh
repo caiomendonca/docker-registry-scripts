@@ -1,5 +1,3 @@
-#!/bin/bash
-
 helpFunction()
 {
    echo ""
@@ -42,9 +40,10 @@ echo -e "image: ${DOCKER_CM_REGISTRY}/${DOCKER_CM_REPOSITORY}:${DOCKER_CM_TAG}\n
 sudo manifest-tool push from-spec /tmp/manifest-tool-multiatch.yaml
 
 while true; do
-    read -p "Do you want to push this multi-arch image in latest tag to? This will overwrite the current latest images (Y/N) " yn
+    read -p "Do you want to push this multi-arch image in a user custom tag to? This will overwrite the current custom tag images if exist (Y/N) " yn
     case $yn in
-        [Yy]* ) echo -e "image: ${DOCKER_CM_REGISTRY}/${DOCKER_CM_REPOSITORY}:latest\nmanifests:\n  -\n    image: ${DOCKER_CM_REGISTRY}/${DOCKER_CM_REPOSITORY}:${DOCKER_CM_TAG}-amd64\n    platform:\n      architecture: amd64\n      os: linux\n  -\n    image: ${DOCKER_CM_REGISTRY}/${DOCKER_CM_REPOSITORY}:${DOCKER_CM_TAG}-arm64\n    platform:\n      architecture: arm64\n      os: linux" > /tmp/manifest-tool-multiatch.yaml && sudo manifest-tool push from-spec /tmp/manifest-tool-multiatch.yaml; break;;
+        [Yy]* ) read -p "What is the custom tag name? ex: latest, latest-ce: " DOCKER_CUSTOM_TAG;
+		echo -e "image: ${DOCKER_CM_REGISTRY}/${DOCKER_CM_REPOSITORY}:${DOCKER_CUSTOM_TAG}\nmanifests:\n  -\n    image: ${DOCKER_CM_REGISTRY}/${DOCKER_CM_REPOSITORY}:${DOCKER_CM_TAG}-amd64\n    platform:\n      architecture: amd64\n      os: linux\n  -\n    image: ${DOCKER_CM_REGISTRY}/${DOCKER_CM_REPOSITORY}:${DOCKER_CM_TAG}-arm64\n    platform:\n      architecture: arm64\n      os: linux" > /tmp/manifest-tool-multiatch.yaml && sudo manifest-tool push from-spec /tmp/manifest-tool-multiatch.yaml; break;;
         [Nn]* ) exit;;
         * ) echo "Please answer yes or no.";;
     esac
