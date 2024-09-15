@@ -5,7 +5,7 @@ echo "Version 1.0"
 echo "Created by Caio Mendonca https://cmconsultor.com.br / https://github.com/caiomendonca"
 
 # set variables
-OS_ARCH=$(arch)
+OS_ARCH=$(uname -m)
 MANIFEST_TOOL_VERSION="2.0.8"
 # ainda nao testado
 if [ $OS_ARCH == "x86_64" ]; then
